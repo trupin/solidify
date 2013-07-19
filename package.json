@@ -1,0 +1,21 @@
+{
+    "name": "solidify",
+    "version": "0.0.1",
+    "main": "./index.js",
+    "private": "true",
+    "dependencies": {
+        "handlebars": ">=1.0.12",
+        "underscore": ">=1.5.1",
+        "request": ">=2.22.0",
+        "async": ">=0.2.9"
+    },
+    "people":{
+        "author":{
+            "name":"Theophane Rupin",
+            "email":"theophane.rupin@gmail.com"
+        }
+    },
+    "license": "MIT",
+    "engines": { "node": ">=0.8.0" }
+}
+
