@@ -5,12 +5,9 @@
  */
 
 (function ($) {
+    var isCrawlable = navigator.userAgent == 'phantom.js';
 
-    $.solidify = (function (options) {
-        options = options || {};
-        options.crawlableAgent = options.crawlableAgent || 'phantom.js';
-
-        var isCrawlable = navigator.userAgent == options.crawlableAgent;
+    $.solidify = (function () {
 
         /**
          * Helper to permit compatibility with solidify.
