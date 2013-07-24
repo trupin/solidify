@@ -5,7 +5,7 @@
  */
 
 (function ($) {
-    var isCrawlable = navigator.userAgent == 'phantom.js'; // TODO make it dynamic
+    var isCrawlable = navigator.userAgent == 'crawlable'; // TODO make it dynamic
 
     Handlebars.registerHelper('solidify', function (url, options) {
         return '{{#solidify "' + url + '"}}' + options.fn(this) + '{{/solidify}}';
