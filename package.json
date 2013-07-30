@@ -7,7 +7,8 @@
         "handlebars": ">=1.0.12",
         "underscore": ">=1.5.1",
         "request": ">=2.22.0",
-        "async": ">=0.2.9"
+        "async": ">=0.2.9",
+        "ent": ">=0.0.6"
     },
     "people":{
         "author":{
