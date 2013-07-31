@@ -7,37 +7,50 @@
 (function ($) {
     var isCrawlable = navigator.userAgent == 'crawlable'; // TODO make it dynamic
 
-//    Handlebars.registerHelper('solidify', function (url, options) {
-//        return '{{#solidify "' + url + '"}}' + options.fn(this) + '{{/solidify}}';
-//    });
-
-    Handlebars.registerHelper('solidify', function () {
-        var urls = _.toArray(arguments),
-            options = urls[urls.length - 1];
-
-        urls = urls.slice(0, urls.length - 1);
-
-        if (options.fn)
-            return '{{#solidify ' + _.map(urls, function (url) {
-                return '"' + url + '"';
-            }).join(' ') + '}}' + options.fn(this) + '{{/solidify}}';
-
-        return '{{solidify ' + _.map(urls, function (url) {
-            return '"' + url + '"';
-        }).join(' ') + '}}'
-    });
-
     $.solidify = function (rawTemplate) {
         if (!isCrawlable) {
-            var inR = /\{\{#?solidify .*\}\}/, outR = /\{\{\/solidify\}\}/;
+            var regex = /\{\{ *[#/]?solidify(-\w+)?[^\}]*\}\}/;
+            while (rawTemplate.match(regex))
+                rawTemplate = rawTemplate.replace(regex, '');
 
-            while (rawTemplate.match(inR) || rawTemplate.match(outR))
-                rawTemplate = rawTemplate.replace(inR, '').replace(outR, '');
-            while (rawTemplate.indexOf('{ { {') !== -1 || rawTemplate.indexOf('} } }') !== -1)
-                rawTemplate = rawTemplate.replace('{ { {', '{{{').replace('} } }', '}}}');
-            while (rawTemplate.indexOf('{ {') !== -1 || rawTemplate.indexOf('} }') !== -1)
-                rawTemplate = rawTemplate.replace('{ {', '{{').replace('} }', '}}');
+            regex = /((\{ )+\{|(\} )+\})/;
+            while (rawTemplate.match(regex))
+                rawTemplate = rawTemplate.replace(regex, function (expr) {
+                    return expr.split(' ').join('');
+                });
         }
-        return rawTemplate;
+        else {
+            var inR = /\{\{ *#?(solidify(-\w+)?)[^\}]*\}\}/, s = rawTemplate;
+            while (s.match(inR)) {
+                s = s.replace(inR, function (__, name) {
+                    Handlebars.registerHelper(name, function () {
+                        var n = name.replace('solidify-', '');
+                        if (_.isFunction($.solidify.addons[n]))
+                            return $.solidify.addons[n].apply(this, arguments);
+                        var options = arguments[arguments.length - 1],
+                            args = _.map(_.toArray(arguments).slice(0, arguments.length - 1),function (e) {
+                                return '"' + e + '"';
+                            }).join(' '),
+                            isScope = _.isFunction(options.fn);
+                        return '{{' + (isScope ? '#' : '') + name + ' ' + args + '}}' + (isScope ? options.fn(this) + '{{/' + name + '}}' : '');
+                    });
+                    return '';
+                });
+            }
+        }
+        return Handlebars.compile(rawTemplate);
+    };
+
+    $.solidify.addons = {
+        include: _.memoize(function (url) {
+            var rawTemplate = '';
+
+            $.ajax({ url: url, async: false })
+                .done(function (data) {
+                    rawTemplate = data;
+                });
+
+            return $.solidify(rawTemplate)();
+        })
     };
 })(jQuery);
