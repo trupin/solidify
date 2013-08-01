@@ -28,7 +28,7 @@
                         if (_.isFunction($.solidify.addons[n]))
                             return $.solidify.addons[n].apply(this, arguments);
                         var options = arguments[arguments.length - 1],
-                            args = _.map(_.toArray(arguments).slice(0, arguments.length - 1),function (e) {
+                            args = _.map(_.toArray(arguments).slice(0, arguments.length - 1), function (e) {
                                 return '"' + e + '"';
                             }).join(' '),
                             isScope = _.isFunction(options.fn);
@@ -50,7 +50,7 @@
                     rawTemplate = data;
                 });
 
-            return $.solidify(rawTemplate)();
+            return new Handlebars.SafeString($.solidify(rawTemplate)());
         })
     };
 })(jQuery);
