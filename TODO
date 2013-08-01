@@ -1,0 +1,3 @@
+TODO
+* add a logger (winston ?)
+* create a personalized lexer/parser instead of using only handlebars
