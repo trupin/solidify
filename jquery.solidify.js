@@ -28,7 +28,7 @@
                         if (_.isFunction($.solidify.addons[n]))
                             return $.solidify.addons[n].apply(this, arguments);
                         var options = arguments[arguments.length - 1],
-                            args = _.map(_.toArray(arguments).slice(0, arguments.length - 1), function (e) {
+                            args = _.map(_.toArray(arguments).slice(0, arguments.length - 1),function (e) {
                                 return '"' + e + '"';
                             }).join(' '),
                             isScope = _.isFunction(options.fn);
@@ -43,13 +43,17 @@
 
     $.solidify.addons = {
         include: _.memoize(function (url) {
-            var rawTemplate = '';
-
-            $.ajax({ url: url, async: false })
-                .done(function (data) {
-                    rawTemplate = data;
-                });
-
+            var rawTemplate = '', $el;
+            try {
+                $el = $('#' + url);
+            } catch (e) {}
+            if ($el.length)
+                rawTemplate = $el.html();
+            else
+                $.ajax({ url: url, async: false })
+                    .done(function (data) {
+                        rawTemplate = data;
+                    });
             return new Handlebars.SafeString($.solidify(rawTemplate)());
         })
     };
