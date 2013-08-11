@@ -46,7 +46,9 @@
             var rawTemplate = '', $el;
             try {
                 $el = $('#' + url);
-            } catch (e) {}
+            } catch (e) {
+                $el = [];
+            }
             if ($el.length)
                 rawTemplate = $el.html();
             else
