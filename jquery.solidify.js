@@ -57,6 +57,9 @@
                         rawTemplate = data;
                     });
             return new Handlebars.SafeString($.solidify(rawTemplate)());
-        })
+        }),
+        html: function (html) {
+            return new Handlebars.SafeString(html);
+        }
     };
 })(jQuery);
