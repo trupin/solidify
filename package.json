@@ -9,7 +9,8 @@
     "request": ">=2.22.0",
     "async": ">=0.2.9",
     "ent": ">=0.0.6",
-    "jison": "~0.4.10"
+    "jison": "~0.4.10",
+    "winston": "~0.7.2"
   },
   "people": {
     "author": {
