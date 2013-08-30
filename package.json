@@ -1,6 +1,6 @@
 {
     "name": "crawlable-solidify",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "./index.js",
     "dependencies": {
         "handlebars": ">=1.0.12",
@@ -19,6 +19,7 @@
         "type": "git",
         "url": "https://github.com/trupin/solidify.git"
     },
+    "description": "Some tools to help you to render your application as a static web site using the crawlable module.",
     "keywords": ["crawlable", "crawling", "template", "handlebars", "jquery"],
     "license": "MIT",
     "engines": {
