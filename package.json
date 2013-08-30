@@ -1,25 +1,27 @@
 {
-  "name": "solidify",
-  "version": "0.0.2",
-  "main": "./index.js",
-  "private": "true",
-  "dependencies": {
-    "handlebars": ">=1.0.12",
-    "underscore": ">=1.5.1",
-    "request": ">=2.22.0",
-    "async": ">=0.2.9",
-    "ent": ">=0.0.6",
-    "jison": "~0.4.10",
-    "winston": "~0.7.2"
-  },
-  "people": {
+    "name": "crawlable-solidify",
+    "version": "1.0.0",
+    "main": "./index.js",
+    "dependencies": {
+        "handlebars": ">=1.0.12",
+        "underscore": ">=1.5.1",
+        "request": ">=2.22.0",
+        "async": ">=0.2.9",
+        "ent": ">=0.0.6",
+        "winston": ">=0.7.2"
+    },
     "author": {
-      "name": "Theophane Rupin",
-      "email": "theophane.rupin@gmail.com"
+        "name": "Theophane Rupin",
+        "email": "theophane.rupin@gmail.com"
+    },
+    "maintainers": ["trupin"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/trupin/solidify.git"
+    },
+    "keywords": ["crawlable", "crawling", "template", "handlebars", "jquery"],
+    "license": "MIT",
+    "engines": {
+        "node": ">=0.4.10"
     }
-  },
-  "license": "MIT",
-  "engines": {
-    "node": ">=0.8.0"
-  }
 }
