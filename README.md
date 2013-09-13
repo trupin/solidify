@@ -30,15 +30,15 @@ data before rendering it.
 
 ## `Node.js` module description
 
-`Solidify.create(options);`: return an instance of a Solidify object.
+**`Solidify.create(options);`**: returns an instance of a Solidify object.
 
 **Options:**
 * `host`: a string specifying the host from where `Solidify` will fetch the dynamic data when necessary (default to `'http://127.0.0.1:3000'`).
 * `logger`: a `winston` logger instance. Pass it if you want to configure the logger yourself.
 
-`solidify.compile(rawTemplate);`: transform a string template into a compiled object.
+**`solidify.compile(rawTemplate);`**: transform a string template into a compiled object.
 
-`solidify.feed(options, compiledObject);`: feed an object compiled with `Solidify.compile` and return a string containing the final html.
+**`solidify.feed(options, compiledObject);`**: feeds an object compiled with `Solidify.compile` and return a string containing the final html.
 
 **Options:**
 * `requests`: an object containing the requests to do to fetch the dynamic data from the host (`{"pathname": "get|post|del|put"}`).
@@ -47,11 +47,11 @@ session to use.
 * `template`: a string containing the compiled template.
 * `context`: an object containing the initial data from which the final html will be rendered.
 
-`solidify.express`: a `Connect`/`Express` middleware, automatically handling the sessionID.
+**`solidify.express`**: a `Connect`/`Express` middleware, automatically handling the sessionID.
 
 ## `jQuery` module description
 
-`jQuery.solidify(rawTemplate);`: compile a string containing the `HandleBars` template and return a `HandleBars` compiled object.
+**`jQuery.solidify(rawTemplate);`**: compiles a string containing the `HandleBars` template and return a `HandleBars` compiled object.
 
 ## `HandleBars` extra syntax
 
