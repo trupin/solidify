@@ -31,14 +31,16 @@ data before rendering it.
 ## `Node.js` module description
 
 `Solidify.create(options);`: return an instance of a Solidify object.
-** Options: **
+
+**Options:**
 * `host`: a string specifying the host from where `Solidify` will fetch the dynamic data when necessary (default to `'http://127.0.0.1:3000'`).
 * `logger`: a `winston` logger instance. Pass it if you want to configure the logger yourself.
 
 `solidify.compile(rawTemplate);`: transform a string template into a compiled object.
 
 `solidify.feed(options, compiledObject);`: feed an object compiled with `Solidify.compile` and return a string containing the final html.
-** Options: **
+
+**Options:**
 * `requests`: an object containing the requests to do to fetch the dynamic data from the host (`{"pathname": "get|post|del|put"}`).
 * `sessionID`: a string containing an identifier for the session. It will be passed in the requests `query` so the host is able to identify which
 session to use.
