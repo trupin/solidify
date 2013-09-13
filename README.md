@@ -94,7 +94,7 @@ Now here is the `List` template:
 </div>
 ```
 
-As you can see, we says to `Solidify` to fetch the `items` by doing a request to the host. Then, for each `item` we
+As you can see, we say to `Solidify` to fetch the `items` by doing a request to the host. Then, for each `item` we
 dereference the content variable so it will be injected into each `li`.
 Notice we include the `Item` template into the `List` template. This is for convenience when using some `Backbone.js` views.
 
