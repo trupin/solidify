@@ -1,28 +1,36 @@
 {
-    "name": "crawlable-solidify",
-    "version": "1.0.2",
-    "main": "./index.js",
-    "dependencies": {
-        "handlebars": ">=1.0.12",
-        "underscore": ">=1.5.1",
-        "request": ">=2.22.0",
-        "async": ">=0.2.9",
-        "ent": ">=0.0.6",
-        "winston": ">=0.7.2"
-    },
-    "author": {
-        "name": "Theophane Rupin",
-        "email": "theophane.rupin@gmail.com"
-    },
-    "maintainers": ["trupin"],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/trupin/solidify.git"
-    },
-    "description": "Some tools to help you to render your application as a static web site using the crawlable module.",
-    "keywords": ["crawlable", "crawling", "template", "handlebars", "jquery"],
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.4.10"
-    }
+  "name": "crawlable-solidify",
+  "version": "1.0.2",
+  "main": "./index.js",
+  "dependencies": {
+    "async": ">=0.2.9",
+    "handlebars": ">=1.0.12",
+    "he": ">=0.4.1",
+    "request": ">=2.22.0",
+    "underscore": ">=1.5.1",
+    "winston": ">=0.7.2"
+  },
+  "author": {
+    "name": "Theophane Rupin",
+    "email": "theophane.rupin@gmail.com"
+  },
+  "maintainers": [
+    "trupin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trupin/solidify.git"
+  },
+  "description": "Some tools to help you to render your application as a static web site using the crawlable module.",
+  "keywords": [
+    "crawlable",
+    "crawling",
+    "template",
+    "handlebars",
+    "jquery"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.4.10"
+  }
 }
